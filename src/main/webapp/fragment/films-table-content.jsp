@@ -30,7 +30,7 @@
 		                       <td class="table-anchor">
 								    <form id="deleteFilmForm${film.id}" action="FilmDelete" method="POST">
 								        <input type="hidden" name="id" value="${film.id}" />
-								        <input type="hidden" name="redirectPage" value="${pageContext.request.requestURI}" />
+								        <input type="hidden" name="redirectPage" value="${initialController}" />
 								
 								        <button type="submit" onclick="deleteFilm('${film.title}', event)">
 								            <i class="fa-solid fa-trash"></i>

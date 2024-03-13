@@ -16,12 +16,12 @@
 		    <div class="main-content" >
 		    	<jsp:include page="./fragment/film-filter.jsp" />
 		        <jsp:include page="./fragment/films-table-content.jsp" />
+		         <jsp:include page="./fragment/films-pagination.jsp">
+		    		<jsp:param name="isFilterPage" value="true"/>
+		    	</jsp:include>
+		    	<jsp:include page="./fragment/footer.jsp" />
 		    </div>
-		    <jsp:include page="./fragment/films-pagination.jsp" />
 		</main>
-		<footer class="general-footer">
-		
-		</footer>
 	</div>  
 </body>
 </html>

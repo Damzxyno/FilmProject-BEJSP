@@ -22,10 +22,6 @@ public class FilmDeleteController extends HttpServlet {
         filmService = new FilmServiceImpl();
     }
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		var filmID = Integer.parseInt(request.getParameter("id"));

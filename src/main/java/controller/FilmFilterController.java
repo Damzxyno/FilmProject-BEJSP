@@ -35,6 +35,8 @@ public class FilmFilterController extends HttpServlet {
 		var films = filmService.filterOutFilms(searchStr, director, startYear, endYear, stars, pageNumber, pageSize);
 		var view = request.getRequestDispatcher("films-filter.jsp");
 		request.setAttribute("films", films);
+		var initialController = "FilmFilter" + getQueryParams(request);
+		request.setAttribute("initialController", initialController);
 		view.forward(request, response);
 	}
 
@@ -46,4 +48,19 @@ public class FilmFilterController extends HttpServlet {
 		doGet(request, response);
 	}
 
+	private String getQueryParams(HttpServletRequest request) {
+		var stringBuilder = new StringBuilder();
+		var parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String paramName = parameterNames.nextElement();
+            String paramValue = request.getParameter(paramName);
+            if (paramValue != null && !paramValue.isBlank()) {
+            	stringBuilder.append(String.format("%s=%s&", paramName, paramValue));
+            }   
+        }
+        if (stringBuilder.length() > 0) {
+        	return "?" + stringBuilder.toString().substring(0, stringBuilder.length() - 1);
+        }
+        return "";
+	}
 }

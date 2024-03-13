@@ -25,11 +25,11 @@ public class FilmController extends HttpServlet {
 		var films = filmService.getAllFilms(pageNumber, pageSize);
 		var view = request.getRequestDispatcher("films.jsp");
 		request.setAttribute("films", films);
+		request.setAttribute("initialController", "Films");
 		view.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

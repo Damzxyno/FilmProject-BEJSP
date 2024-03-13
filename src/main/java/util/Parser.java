@@ -23,7 +23,6 @@ public final class Parser {
 		}
 		return 0;
 	}
-	
 	public static String tryGetHttpRequestStringParamOrDefault (HttpServletRequest request, String parameter) {
 		var value = request.getParameter(parameter);
 		if (value != null && value.isBlank()) {

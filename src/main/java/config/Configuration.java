@@ -3,6 +3,8 @@ package config;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * This class help retrieve environmental and file configuration to use in application
@@ -12,6 +14,7 @@ import java.util.Properties;
  */
 public class Configuration {
 	private static final String DEFAULT_CONFIG_FILE = "config.properties";
+	private static final Logger logger = Logger.getLogger(Configuration.class.getName());
 	private static Properties properties;
 	private static Configuration CONFIGURATION;
 	private Configuration() {}
@@ -48,6 +51,10 @@ public class Configuration {
 		if(properties == null) {
 			loadProperties();
 		}
-		return properties.getProperty(propertyName).trim();
+		var property = properties.getProperty(propertyName);
+		if (property == null) {
+			logger.log(Level.SEVERE, String.format("Property with name '%s' not found.", propertyName));
+		}
+		return property.trim();
 	}
 }

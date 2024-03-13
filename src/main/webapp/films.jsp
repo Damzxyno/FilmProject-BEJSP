@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,16 +10,15 @@
 <body>
 	<jsp:include page="./fragment/header.jsp" />
 	<div class="general-content">
-		<main>
-		   <jsp:include page="./fragment/content-background.jsp" />
-		    <div class="main-content" >
-		        <jsp:include page="./fragment/films-table-content.jsp" />
-		    </div>
-		    <jsp:include page="./fragment/films-pagination.jsp" />
+		<main> <jsp:include page="./fragment/content-background.jsp" />
+		<div class="main-content">
+			<jsp:include page="./fragment/films-table-content.jsp" />
+			<jsp:include page="./fragment/films-pagination.jsp">
+				<jsp:param name="isFilterPage" value="false" />
+			</jsp:include>
+			<jsp:include page="./fragment/footer.jsp" />
+		</div>
 		</main>
-		<footer class="general-footer">
-		
-		</footer>
-	</div>  
+	</div>
 </body>
 </html>
